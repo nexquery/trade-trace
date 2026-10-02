@@ -1,0 +1,21 @@
+{
+  "name": "tradetrace",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "test": "node --test",
+    "build": "node scripts/build.js",
+    "start:production": "node dist/start.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "cryptocurrency-icons": "^0.18.1",
+    "express": "^5.1.0",
+    "mongodb": "^6.20.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

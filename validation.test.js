@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {validateTrade} from './validation.js';
+const trade={symbol:'btc',date:'2026-10-02',entry:100,exit:120,pnl:37,fees:3};
+test('Net sonuç korunur, yön fiyat ve brüt sonuca göre hesaplanır',()=>{assert.equal(validateTrade(trade).side,'Long');assert.equal(validateTrade({...trade,pnl:-43}).side,'Short');assert.equal(validateTrade({...trade,exit:80,pnl:-43}).side,'Long');assert.equal(validateTrade({...trade,exit:80}).side,'Short');assert.equal(validateTrade({...trade,pnl:-1}).side,'Long');assert.equal(validateTrade({...trade,exit:100}).side,'Belirsiz');assert.equal(validateTrade({...trade,pnl:-3}).side,'Belirsiz');assert.equal(validateTrade(trade).pnl,37);});
+test('Geçersiz değerler reddedilir',()=>{for(const change of [{date:'2026-02-30'},{fees:-1},{entry:''},{pnl:''},{exit:'abc'}])assert.throws(()=>validateTrade({...trade,...change}));});

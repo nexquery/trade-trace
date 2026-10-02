@@ -1,0 +1,1 @@
+export function inferSide(entry,exit,pnl,fees){const change=Number(exit)-Number(entry),gross=Number(pnl)+Number(fees);if(!change||!gross)return 'Belirsiz';return Math.sign(change)===Math.sign(gross)?'Long':'Short';}
