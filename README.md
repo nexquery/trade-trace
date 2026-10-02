@@ -2,7 +2,13 @@
 Trader kişilerin alım ve satım işlemlerini kaydedip analiz etmesini sağlar.
 
 ## Kurulum
-`.env.example` dosyasını `.env` olarak değiştirin ve içindeki bilgileri kendinize göre düzenleyin.
+`.env` adında bir dosya oluşturun ve içine aşağıdaki bilgileri girin
+```
+MONGODB_URI=mongodb://USER:PASSWORD@HOST:27017/?authSource=admin
+MONGODB_DB=trade
+PORT=3000
+```
+
 Daha sonra aşağıdaki komutları çalıştırın.
 ```
 npm install
